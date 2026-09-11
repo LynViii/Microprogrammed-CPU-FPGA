@@ -39,7 +39,6 @@ always @(posedge clk or negedge reset) begin
                 8'h10: cu <= 8'h46; // SAL
                 8'h11: cu <= 8'h19; // XOR X
                 8'h12: cu <= 8'h20; // NXOR X
-                default: cu <= 8'h00;
             endcase
         end
     end

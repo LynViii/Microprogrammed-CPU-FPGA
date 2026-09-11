@@ -19,8 +19,8 @@ module cpu_sim;
     initial begin
         #30 reset = 1'b1;
 
-        // The bundled RAM image should eventually execute HALT (microaddress 0x62).
-        #50000;
+        // Check that the bundled program reaches HALT (microaddress 0x62).
+        repeat (5000) @(posedge clk);
         if (dut.rom_addr !== 8'h62) begin
             $fatal(1, "CPU did not reach HALT. CU=0x%02h PC=0x%02h", dut.rom_addr, dut.pc2mar);
         end
